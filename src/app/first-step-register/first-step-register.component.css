@@ -1,0 +1,34 @@
+
+:host /deep/ .mat-datepicker-toggle-default-icon{
+  font-size: 20px;
+}
+:host /deep/ .mat-step-icon-selected{
+  background-color: #005cc7;
+}
+:host /deep/ .mat-step-icon-state-done{
+  background-color: green;
+}
+
+:host /deep/ .first-step .mat-form-field-infix{
+  width: 160px;
+}
+
+:host /deep/ .second-step .mat-form-field-infix{
+  width: 352px;
+}
+
+:host /deep/ .picker .mat-form-field-infix{
+  width: 330px;
+}
+
+.input-group{
+  display: flex;
+  justify-content: space-between;
+}
+
+.mat-button{
+  width: 100%;
+  background-color: #005cc7;
+  color: white;
+  margin-top: 20px;
+}

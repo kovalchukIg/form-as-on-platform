@@ -2,16 +2,12 @@
   min-height: 500px;
   width: 400px;
   border-radius: 7px;
+  background-color: #3d3d3d;
 }
-
-:host /deep/ .mat-datepicker-toggle-default-icon{
-  font-size: 20px;
-}
-
 :host /deep/ .mat-stepper-horizontal-line {
-    border: none;
-    flex: none;
-  }
+  border: none;
+  flex: none;
+}
 :host /deep/ .mat-horizontal-stepper-header{
   padding: 0;
   height: 24px;
@@ -24,18 +20,21 @@
 :host /deep/ .mat-horizontal-stepper-header:hover{
   background: none;
 }
-:host /deep/ .mat-step-icon-selected{
-  background-color: #005cc7;
-}
-:host /deep/ .mat-step-icon-state-done{
-  background-color: green;
-}
-
 :host /deep/ .mat-horizontal-stepper-header-container:nth-child(1):before{
   content: 'Step information';
   color: rgba(255,255,255,.7);
   font-size: 15px;
   margin-right: 5px;
+}
+
+:host /deep/ .mat-datepicker-toggle-default-icon{
+  font-size: 20px;
+}
+:host /deep/ .mat-step-icon-selected{
+  background-color: #005cc7;
+}
+:host /deep/ .mat-step-icon-state-done{
+  background-color: green;
 }
 
 :host /deep/ .first-step .mat-form-field-infix{
@@ -50,10 +49,6 @@
   width: 330px;
 }
 
-.mat-stepper-horizontal-line{
-  border: none;
-}
-
 .input-group{
   display: flex;
   justify-content: space-between;
@@ -65,48 +60,6 @@ input{
   color: white;
 }
 
-.mat-datepicker-toggle{
-  color: rgba(255,255,255,.7);
-}
-
-.mat-button{
-  width: 100%;
-  background-color: #005cc7;
-  color: white;
-  margin-top: 20px;
-}
-.input-document{
-  width: 0;
-  height: 0;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  z-index: -1;
-}
-.upload{
-  display: flex;
-}
-
-.input-document + label{
-  text-align: center;
-  color: #005cc7;
-  border: rgba(255,255,255,.7) 1px dashed;
-}
-.upload label {
-  width: 352px;
-  height: 35px;
-  line-height: 35px;
-}
-.add-document{
-  width: 100%;
-  background-color: #005cc7;
-  color: white;
-  margin-top: 20px;
-  border: none;
-  line-height: 36px;
-  border-radius: 5px;
-  font-size: 16px;
-}
 
 
 

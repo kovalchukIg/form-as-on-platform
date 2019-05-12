@@ -1,3 +1,46 @@
+
+.mat-datepicker-toggle{
+  color: rgba(255,255,255,.7);
+}
+
+.mat-button{
+  width: 100%;
+  background-color: #005cc7;
+  color: white;
+  margin-top: 20px;
+}
+.input-document{
+  width: 0;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+.upload{
+  display: flex;
+}
+
+.input-document + label{
+  text-align: center;
+  color: #005cc7;
+  border: rgba(255,255,255,.7) 1px dashed;
+}
+.upload label {
+  width: 352px;
+  height: 35px;
+  line-height: 35px;
+}
+.add-document{
+  width: 100%;
+  background-color: #005cc7;
+  color: white;
+  margin-top: 20px;
+  border: none;
+  line-height: 36px;
+  border-radius: 5px;
+  font-size: 16px;
+}
 .info{
   padding: 0;
 }

@@ -13,14 +13,16 @@ import {
   MatStepperModule
 } from '@angular/material';
 import {InfoDocumentService} from './info-document.service';
-import { InfoDocumentComponent } from './info-document/info-document.component';
+import { FirstStepRegisterComponent } from './first-step-register/first-step-register.component';
+import { SecondStepRegisterComponent } from './second-step-register/second-step-register.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
-    InfoDocumentComponent,
+    FirstStepRegisterComponent,
+    SecondStepRegisterComponent,
   ],
   imports: [
     BrowserModule,

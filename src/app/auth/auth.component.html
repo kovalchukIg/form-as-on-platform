@@ -1,63 +1,14 @@
 <mat-horizontal-stepper linear>
   <mat-step [editable]="true" [stepControl]="firstFormGroup" [optional]="true">
-    <form class="first-step" [formGroup]="firstFormGroup">
-      <div class="input-group">
-        <mat-form-field>
-          <input placeholder="First name" matInput formControlName="firstName">
-        </mat-form-field>
-        <mat-form-field>
-          <input placeholder="Last name" matInput formControlName="lastName">
-        </mat-form-field>
-      </div>
-      <div class="picker">
-        <mat-form-field>
-          <input matInput [matDatepicker]="picker" placeholder="Date of birth" formControlName="date">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-      </div>
-        <div class="input-group">
-          <mat-form-field>
-            <input placeholder="Country" matInput formControlName="country">
-          </mat-form-field>
-          <mat-form-field>
-            <input placeholder="City" matInput formControlName="city">
-          </mat-form-field>
-        </div>
-        <div class="input-group">
-          <mat-form-field>
-            <input placeholder="Address" matInput formControlName="address">
-          </mat-form-field>
-          <mat-form-field>
-            <input placeholder="Post Code" matInput formControlName="postCode">
-          </mat-form-field>
-        </div>
-        <div>
-          <button mat-button matStepperNext>Next Step</button>
-        </div>
-    </form>
+   <app-first-step-register [firstFormGroup]="firstFormGroup" ></app-first-step-register>
   </mat-step>
   <mat-step>
-    <form class="second-step" [formGroup]="secondFormGroup">
-      <mat-form-field>
-        <mat-label>Select type document</mat-label>
-        <mat-select [(value)]="selected" formControlName="selection">
-          <mat-option  *ngFor="let value of availableDocs" [value]=value>{{value.content}}</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field>
-        <input placeholder="Document ID" matInput formControlName="id">
-      </mat-form-field>
-      <mat-form-field>
-        <input placeholder="Document Expiry" matInput formControlName="expiry">
-      </mat-form-field>
-      <div class="upload">
-        <input type="file" name="upload" id="upload" class="input-document" formControlName="file">
-        <label for="upload">Upload document</label>
-      </div>
-      <app-info-document [selected]="selected" (documentRemoved)="getRemovedDocument($event)" [valueBar]="valueBar"></app-info-document>
-      <button *ngIf="valueBar !== 100" [disabled]="secondFormGroup.invalid" class="add-document" (click)="addDocument()">add</button>
-      <button *ngIf="valueBar === 100" class="add-document" type="submit" >send</button>
-    </form>
+   <app-second-step-register
+     [selected]="selected"
+     [secondFormGroup]="secondFormGroup"
+     [availableDocs]="availableDocs"
+     [getDataDocument]="getDataDocument"
+     [valueProgress]="valueProgress"
+   ></app-second-step-register>
   </mat-step>
 </mat-horizontal-stepper>

@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {DocType, InfoDocumentService} from '../info-document.service';
 
@@ -11,15 +11,16 @@ export class AuthComponent implements OnInit {
   isOptional = false;
   isEditable = false;
   selected;
+  getDataDocument;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   availableDocs: DocType[];
-  valueBar = 0;
-  removedItem;
+  valueProgress = 0;
 
 
   constructor(private infoAuthService: InfoDocumentService) {
     this.availableDocs = this.infoAuthService.getSelectValue();
+    this.getDataDocument = this.infoAuthService.getDataDocument();
   }
 
   ngOnInit() {
@@ -39,16 +40,4 @@ export class AuthComponent implements OnInit {
       file: new FormControl('', Validators.required),
     });
   }
-    addDocument() {
-      this.valueBar += parseInt(this.selected.value, 10);
-      this.infoAuthService.addDataDocument(this.secondFormGroup.get('id').value, this.secondFormGroup.get('expiry').value, this.selected.type, this.secondFormGroup.get('file').value, this.selected.value);
-      this.removedItem = this.availableDocs.filter( i => i.type === this.selected.type);
-      this.availableDocs = this.availableDocs.filter( i => i.type !== this.selected.type);
-      this.secondFormGroup.reset();
-  }
-    getRemovedDocument(event) {
-      this.availableDocs = this.availableDocs.concat(this.removedItem);
-      console.log(this.availableDocs);
-      this.valueBar -= parseInt(event.type, 10);
-    }
 }
