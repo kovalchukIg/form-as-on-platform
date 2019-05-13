@@ -1,14 +1,13 @@
 <mat-horizontal-stepper linear>
-  <mat-step [editable]="true" [stepControl]="firstFormGroup" [optional]="true">
-   <app-first-step-register [firstFormGroup]="firstFormGroup" ></app-first-step-register>
+  <mat-step [editable]="isEditable" [stepControl]="firstFormGroup" [optional]="isOptional" [completed]="isFirstFormValid">
+   <app-first-step-register (valid)="isFirstFormValid = $event" (firstGroup)="getDataFirstForm($event)" (firstForm)="getFirstForm($event)"></app-first-step-register>
   </mat-step>
   <mat-step>
    <app-second-step-register
-     [selected]="selected"
-     [secondFormGroup]="secondFormGroup"
-     [availableDocs]="availableDocs"
-     [getDataDocument]="getDataDocument"
-     [valueProgress]="valueProgress"
-   ></app-second-step-register>
-  </mat-step>
+      [selected]="selected"
+      [availableDocs]="availableDocs"
+      [getDataDocument]="getDataDocument"
+      (secondGroup)="getDataSecondForm($event)"
+></app-second-step-register>
+</mat-step>
 </mat-horizontal-stepper>

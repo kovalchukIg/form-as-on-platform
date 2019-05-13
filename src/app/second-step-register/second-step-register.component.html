@@ -12,7 +12,7 @@
     <input placeholder="Document Expiry" matInput formControlName="expiry">
   </mat-form-field>
   <div class="upload">
-    <input type="file" name="upload" id="upload" class="input-document" formControlName="file">
+    <input #files type="file" name="upload" id="upload" class="input-document" formControlName="file">
     <label for="upload">Upload document</label>
   </div>
   <h3>Added documents:</h3>
@@ -27,6 +27,6 @@
   </mat-list>
   <p>{{valueProgress}}/<span>100</span></p>
   <mat-progress-bar mode="determinate" [value]="valueProgress"></mat-progress-bar>
-  <button *ngIf="valueProgress !== 100" [disabled]="secondFormGroup.invalid" class="add-document" (click)="addDocument()">add</button>
-  <button *ngIf="valueProgress === 100" class="add-document" type="submit" >send</button>
+  <button *ngIf="valueProgress !== 100" [disabled]="secondFormGroup.invalid" class="add-document" type="button" (click)="addDocument()">add</button>
+  <button *ngIf="valueProgress === 100" class="add-document" type="submit" (click)="sendDataFormGroup()">send</button>
 </form>
