@@ -7,7 +7,8 @@ export interface DocTypeSelect {
 }
 
 export interface DocType {
-  id: string;
+  id: number;
+  idDocument: string;
   expiry: string;
   selected: string;
   file: string;
@@ -31,15 +32,5 @@ export class InfoDocumentService {
   }
   getSelectValue() {
     return this.selectValue;
-  }
-
-  addDataDocument(id: string, expiry: string, selected: string, file: string, type: string) {
-    this.dataDocument.push({
-      id,
-      expiry,
-      selected,
-      file,
-      type
-    });
   }
 }

@@ -1,32 +1,30 @@
 <form class="second-step" [formGroup]="secondFormGroup">
   <mat-form-field>
     <mat-label>Select type document</mat-label>
-    <mat-select [(value)]="selected" formControlName="selection">
+    <mat-select formControlName="selection">
       <mat-option  *ngFor="let currentSelected of availableDocs" [value]=currentSelected>{{currentSelected.type}}</mat-option>
     </mat-select>
   </mat-form-field>
   <mat-form-field>
-    <input placeholder="Document ID" matInput formControlName="id">
+    <input placeholder="Document ID" matInput formControlName="idDocument">
   </mat-form-field>
   <mat-form-field>
     <input placeholder="Document Expiry" matInput formControlName="expiry">
   </mat-form-field>
   <div class="upload">
-    <input #files type="file" name="upload" id="upload" class="input-document" formControlName="file">
+    <input #files type="file" name="upload" id="upload" (change)="changeInput(files)" class="input-document" formControlName="file">
     <label for="upload">Upload document</label>
   </div>
   <h3>Added documents:</h3>
   <mat-list class="info">
-    <mat-list-item *ngFor="let item of getDataDocument let i = index">
+    <mat-list-item *ngFor="let item of getDataDocument">
       <p>{{item.file}}</p>
       <span class="right">
       <p> {{item.selected}}</p>
-      <i class="material-icons" (click)="removeDocument(i)">delete</i>
+      <i class="material-icons" (click)="removeDocument(item)">delete</i>
     </span>
     </mat-list-item>
   </mat-list>
   <p>{{valueProgress}}/<span>100</span></p>
   <mat-progress-bar mode="determinate" [value]="valueProgress"></mat-progress-bar>
-  <button *ngIf="valueProgress !== 100" [disabled]="secondFormGroup.invalid" class="add-document" type="button" (click)="addDocument()">add</button>
-  <button *ngIf="valueProgress === 100" class="add-document" type="submit" (click)="sendDataFormGroup()">send</button>
 </form>

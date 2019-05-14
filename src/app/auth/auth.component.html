@@ -1,13 +1,25 @@
-<mat-horizontal-stepper linear>
-  <mat-step [editable]="isEditable" [stepControl]="firstFormGroup" [optional]="isOptional" [completed]="isFirstFormValid">
-   <app-first-step-register (valid)="isFirstFormValid = $event" (firstGroup)="getDataFirstForm($event)" (firstForm)="getFirstForm($event)"></app-first-step-register>
-  </mat-step>
-  <mat-step>
-   <app-second-step-register
-      [selected]="selected"
-      [availableDocs]="availableDocs"
-      [getDataDocument]="getDataDocument"
-      (secondGroup)="getDataSecondForm($event)"
-></app-second-step-register>
-</mat-step>
-</mat-horizontal-stepper>
+<header>
+  <mat-horizontal-stepper linear #stepper>
+    <mat-step [editable]="isEditable" class="first-step" [stepControl]="firstFormGroup" [optional]="isOptional" #stepper1>
+      <app-first-step-register [firstFormGroup]="firstFormGroup"></app-first-step-register>
+      <div>
+      </div>
+    </mat-step>
+    <mat-step>
+      <app-second-step-register
+        [availableDocs]="availableDocs"
+        [getDataDocument]="getDataDocument"
+        [secondFormGroup]="secondFormGroup"
+        [valueProgress]="valueProgress"
+        (sendFiles)="getFile($event)"
+        (currentItem)="getRemoveDocument($event)"
+      >
+      </app-second-step-register>
+    </mat-step>
+  </mat-horizontal-stepper>
+  <div class="buttons">
+    <button mat-button *ngIf="!stepper1.interacted" (click)="stepper.next()">Next Step</button>
+    <button mat-button *ngIf="valueProgress !== 100 && stepper1.interacted" [disabled]="secondFormGroup.invalid" class="add-document" type="button" (click)="addDocument()">add</button>
+    <button mat-button *ngIf="valueProgress === 100" class="add-document" type="submit" (click)="sendDataFormsGroup()">send</button>
+  </div>
+</header>

@@ -1,6 +1,11 @@
-.mat-stepper-horizontal{
+header{
   min-height: 500px;
   width: 400px;
+  background-color: #424242;
+  border-radius: 7px;
+}
+
+.mat-stepper-horizontal{
   border-radius: 7px;
 }
 :host /deep/ .mat-stepper-horizontal-line {
@@ -72,7 +77,20 @@ select:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0px 1000px #000 inset;
   transition: background-color 5000s ease-in-out 0s;
 }
-
+button{
+  width: 352px;
+  background-color: #005cc7;
+  color: white;
+  margin-top: 20px;
+  border: none;
+  line-height: 36px;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+.buttons{
+  display: flex; justify-content: center;
+}
 
 
 
